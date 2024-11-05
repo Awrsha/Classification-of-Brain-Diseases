@@ -1,0 +1,13 @@
+# Essential libraries
+numpy
+pandas
+opencv-python
+torch
+torchvision
+albumentations
+tqdm
+scikit-learn
+imbalanced-learn
+
+# Optional for handling warnings
+warnings
