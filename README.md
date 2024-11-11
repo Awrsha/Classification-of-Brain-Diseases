@@ -4,7 +4,7 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-1.x-%23EE4C2C)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-A deep learning project for image classification using PyTorch, OpenCV, and `albumentations` for data augmentation. This repository includes data preprocessing, model training, and evaluation workflows for image datasets, with a focus on efficient training with GPU support.
+Classification of brain diseases for [IAAA Challange Dataset](https://www.kaggle.com/datasets/iaaaplatform/iaaa-mri-challenge). This repository includes data preprocessing, model training, and evaluation workflows for image datasets, with a focus on efficient training with GPU support.
 
 ## Features ✨
 
