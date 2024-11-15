@@ -1,46 +1,107 @@
-# Classification of brain diseases with PyTorch 🖼️
+# Brain Tumor MRI Classification using Deep Learning
 
-![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
-![PyTorch](https://img.shields.io/badge/PyTorch-1.x-%23EE4C2C)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+## 🧠 Project Overview
+An advanced deep learning model for binary classification of brain MRI scans to detect tumors (benign vs. malignant). The model utilizes a custom attention-enhanced ResNet50 architecture with state-of-the-art training techniques to achieve high accuracy and reliability in tumor detection.
 
-Classification of brain diseases for [IAAA Challange Dataset](https://www.kaggle.com/datasets/iaaaplatform/iaaa-mri-challenge). This repository includes data preprocessing, model training, and evaluation workflows for image datasets, with a focus on efficient training with GPU support.
+## 🌟 Key Features
+- Custom attention mechanism for focused feature extraction
+- ResNet50 backbone with attention gates
+- Focal Loss for handling class imbalance
+- Mixed precision training for improved performance
+- Advanced data augmentation pipeline
+- Comprehensive evaluation metrics and visualization
 
-## Features ✨
+## 📊 Model Architecture
+The model combines ResNet50 with custom attention gates:
+- Base: Pretrained ResNet50
+- Custom Components:
+  - 3 Attention Gates (2048->1024, 2048->512, 2048->256)
+  - Global Average Pooling
+  - Custom classifier head (2048->512->1)
+- Training Enhancements:
+  - Focal Loss (alpha=0.25, gamma=2)
+  - OneCycleLR scheduling
+  - Mixed precision training with GradScaler
 
-- **Data Augmentation**: Utilizes `albumentations` for robust image augmentations.
-- **Custom Dataset Loader**: Simplifies loading and preprocessing of custom image datasets.
-- **GPU-Accelerated Training**: Supports CUDA for high-performance training on NVIDIA GPUs.
-- **Metrics Calculation**: Calculates precision and recall metrics to evaluate model performance.
-- **Resampling**: Balances classes using `RandomOverSampler` from `imblearn`.
+## 🛠 Requirements
+```
+torch>=1.7.0
+torchvision>=0.8.0
+albumentations>=0.5.2
+opencv-python>=4.5.0
+numpy>=1.19.2
+pandas>=1.2.0
+scikit-learn>=0.24.0
+tqdm>=4.50.0
+matplotlib>=3.3.0
+imbalanced-learn>=0.8.0
+```
 
-## Installation 🛠️
+## 🚀 Getting Started
 
-Clone the repository and install dependencies:
-
+### Installation
 ```bash
-git clone https://github.com/AmirrHussain/Classification-of-brain-diseases.git
+# Clone the repository
+git clone https://github.com/awrsha/Classification-of-brain-diseases.git
 cd Classification-of-brain-diseases
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-> **Note**: Ensure CUDA is available for GPU-accelerated training.
+### Training
+```bash
+python 0.7914.py --batch_size 32 --epochs 60 --lr 1e-3
+```
 
-3. **Evaluate Model**: After training, evaluate the model on a test set to view metrics.
+## 📈 Performance Metrics
+The model is evaluated using multiple metrics:
+- ROC-AUC
+- Precision-Recall curves
+- F1 Score
+- Confusion Matrix
+- Threshold Analysis
 
-## Results 📊
+## 🔧 Model Configuration
+Key hyperparameters:
+```python
+{
+    "batch_size": 32,
+    "learning_rate": 1e-3,
+    "weight_decay": 1e-2,
+    "epochs": 60,
+    "focal_loss_alpha": 0.25,
+    "focal_loss_gamma": 2
+}
+```
 
-Example results and performance metrics will appear here:
+## 🎯 Data Augmentation
+Comprehensive augmentation pipeline including:
+- Random rotation
+- Flips
+- Brightness/Contrast adjustments
+- Coarse dropout
+- Normalization
+- Resize to 224x224
 
-| Metric     | Value     |
-|------------|-----------|
-| Precision  | 0.79      |
-| Recall     | 0.78      |
+## 📊 Results Visualization
+The project includes:
+- ROC curves
+- Precision-Recall curves
+- Random sample predictions
+- Confusion matrices
+- Threshold analysis plots
 
-## Contributing 🤝
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Contributions are welcome! Please open issues or pull requests as needed.
+## 📝 License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## License 📄
+## 🙏 Acknowledgments
+- The dataset providers
+- The medical professionals who helped with data annotation
+- The open-source community for the tools and libraries used
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## 📧 Contact
+For questions or feedback, please open an issue or contact [official.parvizi@gmail.com]
