@@ -1,7 +1,11 @@
 # Brain Tumor MRI Classification using Deep Learning
 
 ## 🧠 Project Overview
-An advanced deep learning model for binary classification of brain MRI scans to detect tumors (benign vs. malignant). The model utilizes a custom attention-enhanced ResNet50 architecture with state-of-the-art training techniques to achieve high accuracy and reliability in tumor detection.
+An advanced deep learning model is designed for binary classification of brain MRI scans to detect tumors (benign vs. malignant). This model leverages a custom attention-enhanced ResNet50 architecture, incorporating state-of-the-art training techniques to achieve high accuracy and reliability.
+
+The development process involved benchmarking performance across several architectures, including ResNet18, ResNet50, EfficientNet, and Vision Transformer (ViT), to identify the optimal backbone for tumor detection. Furthermore, attention mechanisms like Attention Gate and Self-Attention were integrated to enhance feature refinement and improve the focus on critical tumor regions. A novel implementation of the Attention-Based Multiple Instance Learning (ABMIL) framework further boosts the model's interpretability and performance.
+
+The model was trained and evaluated on the [IAAA Challenge Dataset](https://www.kaggle.com/datasets/amirmohammadparvizi/newiaaa), demonstrating its robustness and adaptability to real-world medical imaging scenarios.
 
 ## 🌟 Key Features
 - Custom attention mechanism for focused feature extraction
